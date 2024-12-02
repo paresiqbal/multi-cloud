@@ -7,7 +7,7 @@ export async function GET() {
   try {
     // Fetch users from MongoDB
     const mongoClient = await clientPromise;
-    const mongoDb = mongoClient.db("your_database_name");
+    const mongoDb = mongoClient.db("multi-cloud");
     const mongoUsers = await mongoDb.collection("users").find({}).toArray();
 
     // Fetch users from Firebase
