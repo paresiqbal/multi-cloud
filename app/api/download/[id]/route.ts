@@ -3,10 +3,8 @@ import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
 // Note that you no longer need to explicitly type `params`
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   try {
     const { id } = params;
 
