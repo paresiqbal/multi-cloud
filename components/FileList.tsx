@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,7 +21,7 @@ export function FileList() {
   const [files, setFiles] = useState<File[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const searchFiles = async () => {
+  const searchFiles = useCallback(async () => {
     try {
       const response = await fetch(
         `/api/search?query=${encodeURIComponent(searchQuery)}`
@@ -37,13 +35,13 @@ export function FileList() {
     } catch (error) {
       console.error("Error searching files:", error);
     }
-  };
+  }, [searchQuery]);
 
   useEffect(() => {
     searchFiles();
-  }, []);
+  }, [searchFiles]);
 
-  const handleDownload = (fileId: string, filename: string) => {
+  const handleDownload = (fileId: string) => {
     window.location.href = `/api/download/${fileId}`;
   };
 
@@ -76,7 +74,7 @@ export function FileList() {
                 {new Date(file.uploadDate).toLocaleString()}
               </TableCell>
               <TableCell>
-                <Button onClick={() => handleDownload(file._id, file.filename)}>
+                <Button onClick={() => handleDownload(file._id)}>
                   Download
                 </Button>
               </TableCell>

@@ -1,3 +1,4 @@
+import { FileList } from "@/components/FileList";
 import { UploadForm } from "@/components/UploadForm";
 
 export default function Home() {
