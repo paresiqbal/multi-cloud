@@ -4,10 +4,10 @@ import { ObjectId } from "mongodb";
 
 export async function GET(
   request: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = context.params; // Access the `id` from `context.params`
+    const { id } = params; // Access the 'id' from the 'params' object in context
 
     const client = await clientPromise;
     const db = client.db("multi-cloud");
