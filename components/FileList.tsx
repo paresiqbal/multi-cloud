@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,10 +22,12 @@ interface File {
 export function FileList() {
   const [files, setFiles] = useState<File[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const searchFiles = useCallback(async () => {
-    if (!searchQuery) {
-      // Skip the search if query is empty
+    // Prevent API call if searchQuery is empty
+    if (!searchQuery.trim()) {
+      setFiles([]); // Clear files
       return;
     }
 
@@ -33,33 +35,20 @@ export function FileList() {
       const response = await fetch(
         `/api/search?query=${encodeURIComponent(searchQuery)}`
       );
+
       if (response.ok) {
         const data = await response.json();
         setFiles(data);
+        setError(null); // Clear previous errors
       } else {
-        console.error("Failed to search files");
+        const errorData = await response.json();
+        setError(errorData.error || "Failed to search files");
       }
-    } catch (error) {
-      console.error("Error searching files:", error);
+    } catch (err) {
+      console.error("Error searching files:", err);
+      setError("An unexpected error occurred.");
     }
   }, [searchQuery]);
-
-  useEffect(() => {
-    // Optional: Fetch all files on initial load (default behavior)
-    const fetchAllFiles = async () => {
-      try {
-        const response = await fetch(`/api/search?query=`);
-        if (response.ok) {
-          const data = await response.json();
-          setFiles(data);
-        }
-      } catch (error) {
-        console.error("Error fetching all files:", error);
-      }
-    };
-
-    fetchAllFiles(); // Call it only on initial load
-  }, []);
 
   const handleDownload = async (fileId: string, filename: string) => {
     try {
@@ -79,8 +68,8 @@ export function FileList() {
         const errorData = await response.json();
         console.error("Failed to download file:", errorData.error);
       }
-    } catch (error) {
-      console.error("Error downloading file:", error);
+    } catch (err) {
+      console.error("Error downloading file:", err);
     }
   };
 
@@ -95,6 +84,7 @@ export function FileList() {
         />
         <Button onClick={searchFiles}>Search</Button>
       </div>
+      {error && <p className="text-red-500 text-sm">{error}</p>}
       <Table>
         <TableHeader>
           <TableRow>

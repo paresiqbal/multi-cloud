@@ -3,15 +3,18 @@ import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
 export async function GET(
-  _request: NextRequest,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
+    // Access the params directly from the request
+    const { id } = params;
+
     const client = await clientPromise;
     const db = client.db("multi-cloud");
     const collection = db.collection("uploads");
 
-    const file = await collection.findOne({ _id: new ObjectId(params.id) });
+    const file = await collection.findOne({ _id: new ObjectId(id) });
 
     if (!file) {
       return NextResponse.json({ error: "File not found" }, { status: 404 });
