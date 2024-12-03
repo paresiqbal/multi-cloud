@@ -17,12 +17,15 @@ export async function GET(
       return NextResponse.json({ error: "File not found" }, { status: 404 });
     }
 
-    if (!file.content || !(file.content instanceof Buffer)) {
+    if (!file.content || !("buffer" in file.content)) {
       return NextResponse.json(
         { error: "File content is missing or invalid" },
         { status: 500 }
       );
     }
+
+    // Convert MongoDB Binary to Buffer
+    const buffer = file.content.buffer;
 
     const headers = new Headers();
     headers.set(
@@ -30,11 +33,10 @@ export async function GET(
       `attachment; filename="${file.filename}"`
     );
     headers.set("Content-Type", file.type || "application/octet-stream");
-    headers.set("Content-Length", file.content.length.toString());
+    headers.set("Content-Length", buffer.length.toString());
 
-    return new NextResponse(file.content, { headers });
+    return new NextResponse(buffer, { headers });
   } catch (error) {
-    // Simplified error handling
     const errorMessage =
       error instanceof Error ? error.message : "Unknown error occurred";
     console.error("Download error:", errorMessage);
