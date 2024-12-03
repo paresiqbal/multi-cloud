@@ -24,6 +24,11 @@ export function FileList() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const searchFiles = useCallback(async () => {
+    if (!searchQuery) {
+      // Skip the search if query is empty
+      return;
+    }
+
     try {
       const response = await fetch(
         `/api/search?query=${encodeURIComponent(searchQuery)}`
@@ -40,8 +45,21 @@ export function FileList() {
   }, [searchQuery]);
 
   useEffect(() => {
-    searchFiles();
-  }, [searchFiles]);
+    // Optional: Fetch all files on initial load (default behavior)
+    const fetchAllFiles = async () => {
+      try {
+        const response = await fetch(`/api/search?query=`);
+        if (response.ok) {
+          const data = await response.json();
+          setFiles(data);
+        }
+      } catch (error) {
+        console.error("Error fetching all files:", error);
+      }
+    };
+
+    fetchAllFiles(); // Call it only on initial load
+  }, []);
 
   const handleDownload = async (fileId: string, filename: string) => {
     try {
