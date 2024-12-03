@@ -2,12 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
+// Note that you no longer need to explicitly type `params`
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const { id } = params; // Access the 'id' from the 'params' object in context
+    const { id } = params;
 
     const client = await clientPromise;
     const db = client.db("multi-cloud");
