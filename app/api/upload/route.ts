@@ -10,21 +10,21 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    // Connect to MongoDB
+    const buffer = Buffer.from(await file.arrayBuffer());
+
     const client = await clientPromise;
     const db = client.db("multi-cloud");
     const collection = db.collection("uploads");
 
-    // Store file metadata in MongoDB
     const result = await collection.insertOne({
       filename: file.name,
       size: file.size,
       type: file.type,
       uploadDate: new Date(),
+      content: buffer,
     });
 
-    // In a real-world scenario, you'd store the actual file in a file storage service
-    // and save the file's URL or identifier in MongoDB along with the metadata
+    console.log("File uploaded successfully:", result.insertedId);
 
     return NextResponse.json({
       message: "File uploaded successfully",
@@ -32,9 +32,18 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error("Upload error:", error);
-    return NextResponse.json(
-      { error: "Failed to upload file" },
-      { status: 500 }
-    );
+
+    // Ensure error is of type Error
+    if (error instanceof Error) {
+      return NextResponse.json(
+        { error: "Failed to upload file", details: error.message },
+        { status: 500 }
+      );
+    } else {
+      return NextResponse.json(
+        { error: "Failed to upload file", details: "Unknown error" },
+        { status: 500 }
+      );
+    }
   }
 }

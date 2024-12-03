@@ -3,7 +3,7 @@ import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
 export async function GET(
-  _request: NextRequest,
+  _request: NextRequest, // Prefix with underscore to indicate it's intentionally unused
   { params }: { params: { id: string } }
 ) {
   try {
@@ -22,10 +22,10 @@ export async function GET(
 
     console.log("File found:", file.filename);
 
-    if (!file.content || !file.content.buffer) {
+    if (!file.content || !(file.content instanceof Buffer)) {
       console.error("File content is missing or invalid");
       return NextResponse.json(
-        { error: "File content is missing" },
+        { error: "File content is missing or invalid" },
         { status: 500 }
       );
     }
@@ -36,24 +36,32 @@ export async function GET(
       `attachment; filename="${file.filename}"`
     );
     headers.set("Content-Type", file.type || "application/octet-stream");
-    headers.set("Content-Length", file.content.buffer.length.toString());
+    headers.set("Content-Length", file.content.length.toString());
 
     console.log(
       "Sending file:",
       file.filename,
       "Size:",
-      file.content.buffer.length,
+      file.content.length,
       "bytes"
     );
 
-    return new NextResponse(file.content.buffer, {
+    return new NextResponse(file.content, {
       headers,
     });
   } catch (error: unknown) {
-    console.error("Download error:", error);
-    return NextResponse.json(
-      { error: "Failed to download file", details: (error as Error).message },
-      { status: 500 }
-    );
+    if (error instanceof Error) {
+      console.error("Download error:", error);
+      return NextResponse.json(
+        { error: "Failed to download file", details: error.message },
+        { status: 500 }
+      );
+    } else {
+      console.error("Unexpected error:", error);
+      return NextResponse.json(
+        { error: "Failed to download file", details: "Unknown error" },
+        { status: 500 }
+      );
+    }
   }
 }
