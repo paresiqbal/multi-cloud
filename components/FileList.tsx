@@ -11,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Toaster, toast } from "sonner";
 
 interface File {
   _id: string;
@@ -33,9 +34,11 @@ export function FileList() {
         setFiles(data);
       } else {
         console.error("Failed to search files");
+        toast.error("Error");
       }
     } catch (error) {
       console.error("Error searching files:", error);
+      toast.error("Error");
     }
   }, [searchQuery]);
 
@@ -43,12 +46,33 @@ export function FileList() {
     searchFiles();
   }, [searchFiles]);
 
-  const handleDownload = (fileId: string) => {
-    window.location.href = `/api/download/${fileId}`;
+  const handleDownload = async (fileId: string, filename: string) => {
+    try {
+      const response = await fetch(`/api/download/${fileId}`);
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } else {
+        const errorData = await response.json();
+        console.error("Failed to download file:", errorData.error);
+        toast.error("Download Failed");
+      }
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      toast.error("Download Error");
+    }
   };
 
   return (
     <div className="space-y-4">
+      <Toaster />
       <div className="flex gap-2">
         <Input
           type="text"
@@ -76,7 +100,7 @@ export function FileList() {
                 {new Date(file.uploadDate).toLocaleString()}
               </TableCell>
               <TableCell>
-                <Button onClick={() => handleDownload(file._id)}>
+                <Button onClick={() => handleDownload(file._id, file.filename)}>
                   Download
                 </Button>
               </TableCell>
