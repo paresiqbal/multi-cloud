@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
+import { Binary } from "mongodb";
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,7 +22,7 @@ export async function POST(request: NextRequest) {
       size: file.size,
       type: file.type,
       uploadDate: new Date(),
-      content: buffer,
+      content: new Binary(buffer),
     });
 
     console.log("File uploaded successfully:", result.insertedId);
