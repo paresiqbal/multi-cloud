@@ -25,10 +25,10 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Link href="/login" className="mr-4">
+              <Link href="/auth/login" className="mr-4">
                 Login
               </Link>
-              <Link href="/register">Register</Link>
+              <Link href="/auth/register">Register</Link>
             </>
           )}
         </div>
