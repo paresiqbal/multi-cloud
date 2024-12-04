@@ -1,23 +1,15 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import {
-  User,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
 } from "firebase/auth";
 import { auth, googleProvider } from "../lib/firebase";
+import { AuthContextType, AuthContext } from "@/context/authContext";
 
 export function useAuth() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
-    });
-    return () => unsubscribe();
-  }, []);
+  const { user } = useContext<AuthContextType>(AuthContext);
 
   const register = async (email: string, password: string) => {
     try {
