@@ -11,7 +11,7 @@ export default function Navbar() {
     <nav className="p-4 border-b">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-xl font-bold">
-          My App
+          Doc Management
         </Link>
         <div>
           {user ? (
