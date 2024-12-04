@@ -6,7 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth, googleProvider } from "../lib/firebase";
-import { AuthContextType, AuthContext } from "@/context/authContext";
+import { AuthContext, AuthContextType } from "@/context/authContext";
 
 export function useAuth() {
   const { user } = useContext<AuthContextType>(AuthContext);
