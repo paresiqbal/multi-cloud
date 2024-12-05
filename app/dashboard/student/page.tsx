@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import supabase from "@/lib/supabase";
+import { SupabaseFileList } from "@/components/FileList";
 
 const FileUpload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -53,6 +54,9 @@ const FileUpload = () => {
         {uploading ? "Uploading..." : "Upload"}
       </button>
       {error && <p style={{ color: "red" }}>{error}</p>}
+      <div>
+        <SupabaseFileList />
+      </div>
     </div>
   );
 };
