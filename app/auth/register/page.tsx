@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -18,14 +17,20 @@ import { useAuth } from "@/hooks/useAuth";
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { register, loginWithGoogle } = useAuth();
+  const { register, loginWithGoogle, user } = useAuth();
   const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard");
+    }
+  }, [user, router]);
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await register(email, password);
-      router.push("/dashboard");
+      // The useEffect above will handle redirection after successful registration
     } catch (error) {
       console.error("Registration failed:", error);
     }
@@ -34,7 +39,7 @@ export default function Register() {
   const handleGoogleRegister = async () => {
     try {
       await loginWithGoogle();
-      router.push("/dashboard");
+      // The useEffect above will handle redirection after successful registration
     } catch (error) {
       console.error("Google registration failed:", error);
     }
