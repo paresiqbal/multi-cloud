@@ -4,7 +4,7 @@ import { useState } from "react";
 import supabase from "@/lib/supabase";
 import { SupabaseFileList } from "@/components/FileList";
 
-const FileUpload = () => {
+export default function FileUpload() {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -59,6 +59,4 @@ const FileUpload = () => {
       </div>
     </div>
   );
-};
-
-export default FileUpload;
+}
