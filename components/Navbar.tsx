@@ -18,6 +18,12 @@ export default function Navbar() {
           {user ? (
             <>
               <div>
+                <Link href="/dashboard/students" className="hover:underline">
+                  Students
+                </Link>
+                <Link href="/dashboard/schools" className="hover:underline">
+                  Schools
+                </Link>
                 {user && <p>{user.email}</p>}
                 <Button onClick={logout}>Logout</Button>
               </div>
