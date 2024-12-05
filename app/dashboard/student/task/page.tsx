@@ -9,7 +9,7 @@ interface File {
   size: number;
   uploadDate: string;
   downloadURL: string;
-  source: "Firebase" | "MongoDB";
+  source: "Firebase";
 }
 
 export default function TaskStudent() {
@@ -46,6 +46,7 @@ export default function TaskStudent() {
           </li>
         ))}
       </ul>
+      <TaskStudent />
     </div>
   );
 }
