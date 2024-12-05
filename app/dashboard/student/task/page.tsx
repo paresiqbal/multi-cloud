@@ -1,6 +1,6 @@
 "use client";
 
-import { SupabaseFileList } from "@/components/FileList";
+import { TaskList } from "@/components/TaskList";
 import { TaskForm } from "@/components/TaskForm";
 import {
   Card,
@@ -25,7 +25,7 @@ export default function StudentTask() {
           <CardDescription>Lis tugas siswa.</CardDescription>
         </CardHeader>
         <CardContent>
-          <SupabaseFileList />
+          <TaskList />
         </CardContent>
       </Card>
     </div>

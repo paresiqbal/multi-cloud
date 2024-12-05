@@ -16,22 +16,21 @@ import supabase from "@/lib/supabase";
 interface File {
   name: string;
   size: number;
-  lastModified: string; // Using ISO date string for consistency
+  lastModified: string;
 }
 
-export function SupabaseFileList() {
+export function TaskList() {
   const [files, setFiles] = useState<File[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const searchFiles = useCallback(async () => {
     if (!searchQuery.trim()) {
-      setFiles([]); // Clear files
+      setFiles([]);
       return;
     }
 
     try {
-      // Fetch all files in the "uploads" folder
       const { data, error } = await supabase.storage
         .from("task")
         .list("uploads");
@@ -39,14 +38,13 @@ export function SupabaseFileList() {
       if (error) throw error;
 
       if (data) {
-        // Filter files based on the search query
         const filteredFiles = data
           .filter((file) =>
             file.name.toLowerCase().includes(searchQuery.toLowerCase())
           )
           .map((file) => ({
             name: file.name,
-            size: file.metadata?.size || 0, // Assuming metadata contains the file size
+            size: file.metadata?.size || 0,
             lastModified: file.updated_at || new Date().toISOString(),
           }));
         setFiles(filteredFiles);
@@ -61,7 +59,7 @@ export function SupabaseFileList() {
     try {
       const { data, error } = await supabase.storage
         .from("task")
-        .createSignedUrl(`uploads/${fileName}`, 60); // Signed URL valid for 60 seconds
+        .createSignedUrl(`uploads/${fileName}`, 60);
 
       if (error) throw error;
 
