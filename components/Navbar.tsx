@@ -14,11 +14,13 @@ export default function Navbar() {
         <Link href="/dashboard" className="text-xl font-bold">
           <Image src="/assets/file.png" alt="Logo" width={50} height={50} />
         </Link>
-        <div className="flex gap-4 justify-center items-center">
+        <div>
           {user ? (
             <>
-              {user && <p>{user.email}</p>}
-              <Button onClick={logout}>Logout</Button>
+              <div>
+                {user && <p>{user.email}</p>}
+                <Button onClick={logout}>Logout</Button>
+              </div>
             </>
           ) : (
             <>
