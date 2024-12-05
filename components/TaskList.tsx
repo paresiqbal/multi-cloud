@@ -12,6 +12,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import supabase from "@/lib/supabase";
+import { Search, Trash } from "lucide-react";
 
 interface File {
   name: string;
@@ -84,7 +85,9 @@ export function TaskList() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <Button onClick={searchFiles}>Search</Button>
+        <Button onClick={searchFiles}>
+          <Search className="w-4 h-4" />
+        </Button>
       </div>
       {error && <p className="text-red-500 text-sm">{error}</p>}
       <Table>
@@ -104,9 +107,12 @@ export function TaskList() {
               <TableCell>
                 {new Date(file.lastModified).toLocaleString()}
               </TableCell>
-              <TableCell>
+              <TableCell className="flex gap-2">
                 <Button onClick={() => handleDownload(file.name)}>
                   Download
+                </Button>
+                <Button>
+                  <Trash className="w-4 h-4" />
                 </Button>
               </TableCell>
             </TableRow>
