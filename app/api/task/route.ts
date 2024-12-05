@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { storage } from "@/lib/firebase";
-import { ref, getDownloadURL, uploadBytes } from "firebase/storage";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 export async function POST(req: NextRequest) {
   try {
@@ -17,12 +17,12 @@ export async function POST(req: NextRequest) {
     }
 
     const storageRef = ref(storage, `uploads/${fileName}`);
+
     const buffer = Buffer.from(fileData, "base64");
 
-    console.log("Buffer created:", buffer);
+    const uploadTask = uploadBytesResumable(storageRef, buffer);
 
-    await uploadBytes(storageRef, buffer);
-    console.log("File uploaded successfully.");
+    await uploadTask;
 
     const downloadURL = await getDownloadURL(storageRef);
     console.log("Download URL obtained:", downloadURL);
