@@ -3,7 +3,13 @@
 import { useState } from "react";
 import supabase from "@/lib/supabase";
 import { SupabaseFileList } from "@/components/FileList";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function StudentTask() {
   const [file, setFile] = useState<File | null>(null);
@@ -47,13 +53,22 @@ export default function StudentTask() {
   };
 
   return (
-    <div>
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={uploadFile} disabled={uploading}>
-        {uploading ? "Uploading..." : "Upload"}
-      </button>
+    <div className="container mx-auto mt-10 p-4 max-w-7xl">
+      <h1 className="text-2xl font-bold mb-4">Tugas Siswa</h1>
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-2">Upload SOP Sekolah</h2>
+        <input type="file" onChange={handleFileChange} />
+        <button onClick={uploadFile} disabled={uploading}>
+          {uploading ? "Uploading..." : "Upload"}
+        </button>
+      </div>
+
       {error && <p style={{ color: "red" }}>{error}</p>}
       <Card>
+        <CardHeader>
+          <CardTitle>Cari Tugas</CardTitle>
+          <CardDescription>Lis tugas siswa.</CardDescription>
+        </CardHeader>
         <CardContent>
           <SupabaseFileList />
         </CardContent>
