@@ -9,7 +9,7 @@ export default function Navbar() {
   const { user, logout } = useAuth();
 
   return (
-    <nav className="p-4 border-b">
+    <nav className="border-b p-2">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/dashboard" className="text-xl font-bold">
           <Image src="/assets/file.png" alt="Logo" width={50} height={50} />
@@ -17,11 +17,11 @@ export default function Navbar() {
         <div>
           {user ? (
             <>
-              <div>
-                <Link href="/dashboard/students" className="hover:underline">
+              <div className="flex justify-center items-center gap-8">
+                <Link href="/dashboard/student" className="hover:underline">
                   Students
                 </Link>
-                <Link href="/dashboard/schools" className="hover:underline">
+                <Link href="/dashboard/school" className="hover:underline">
                   Schools
                 </Link>
                 {user && <p>{user.email}</p>}
