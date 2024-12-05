@@ -32,7 +32,6 @@ export default function Login() {
     e.preventDefault();
     try {
       await login(email, password);
-      // The useEffect above will handle redirection after successful login
     } catch (error) {
       console.error("Login failed:", error);
     }
@@ -41,7 +40,6 @@ export default function Login() {
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-      // The useEffect above will handle redirection after successful login
     } catch (error) {
       console.error("Google login failed:", error);
     }
