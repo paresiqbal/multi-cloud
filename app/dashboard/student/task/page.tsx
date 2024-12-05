@@ -5,19 +5,17 @@ import supabase from "@/lib/supabase";
 import { SupabaseFileList } from "@/components/FileList";
 import { Card, CardContent } from "@/components/ui/card";
 
-export default function FileUpload() {
+export default function StudentTask() {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Handle file selection
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
       setFile(event.target.files[0]);
     }
   };
 
-  // Upload file
   const uploadFile = async () => {
     if (!file) return;
 
