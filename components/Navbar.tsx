@@ -18,11 +18,14 @@ export default function Navbar() {
           {user ? (
             <>
               <div className="flex justify-center items-center gap-8">
-                <Link href="/dashboard/student" className="hover:underline">
-                  Students
+                <Link
+                  href="/dashboard/student/task"
+                  className="hover:underline"
+                >
+                  Tugas Siswa
                 </Link>
-                <Link href="/dashboard/school" className="hover:underline">
-                  Schools
+                <Link href="/dashboard/school/sop" className="hover:underline">
+                  Sop Sekolah
                 </Link>
                 {user && <p>{user.email}</p>}
                 <Button onClick={logout}>Logout</Button>
