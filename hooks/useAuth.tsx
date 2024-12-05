@@ -11,7 +11,6 @@ export function useAuth() {
   const { user } = useAuthContext();
 
   const setSessionCookie = () => {
-    // This is a simple example. In a real app, you'd want to set a secure, HTTP-only cookie
     document.cookie = `session=true; path=/; max-age=${
       60 * 60 * 24 * 7
     }; SameSite=Strict`;
