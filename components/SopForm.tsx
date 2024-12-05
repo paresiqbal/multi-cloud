@@ -21,7 +21,7 @@ export function SopForm() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("/api/school-sop", {
+      const response = await fetch("/api/sop", {
         method: "POST",
         body: formData,
       });
