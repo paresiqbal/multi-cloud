@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(await file.arrayBuffer());
 
     const client = await clientPromise;
-    const db = client.db("multi-cloud");
+    const db = client.db("schools");
     const collection = db.collection("sop");
 
     const result = await collection.insertOne({
