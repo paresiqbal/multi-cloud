@@ -30,7 +30,6 @@ export default function Register() {
     e.preventDefault();
     try {
       await register(email, password);
-      // The useEffect above will handle redirection after successful registration
     } catch (error) {
       console.error("Registration failed:", error);
     }
@@ -39,7 +38,6 @@ export default function Register() {
   const handleGoogleRegister = async () => {
     try {
       await loginWithGoogle();
-      // The useEffect above will handle redirection after successful registration
     } catch (error) {
       console.error("Google registration failed:", error);
     }
