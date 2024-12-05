@@ -33,7 +33,7 @@ export function SopList() {
 
     try {
       const response = await fetch(
-        `/api/search?query=${encodeURIComponent(searchQuery)}`
+        `/api/sop/sop-search?query=${encodeURIComponent(searchQuery)}`
       );
 
       if (response.ok) {
@@ -52,7 +52,7 @@ export function SopList() {
 
   const handleDownload = async (fileId: string, filename: string) => {
     try {
-      const response = await fetch(`/api/download/${fileId}`);
+      const response = await fetch(`/api/sop/sop-download/${fileId}`);
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
