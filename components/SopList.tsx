@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/table";
 
 // icons
-import { Search } from "lucide-react";
+import { Search, Trash } from "lucide-react";
 
 interface File {
   _id: string;
@@ -108,9 +108,12 @@ export function SopList() {
               <TableCell>
                 {new Date(file.uploadDate).toLocaleString()}
               </TableCell>
-              <TableCell>
+              <TableCell className="flex items-center gap-2">
                 <Button onClick={() => handleDownload(file._id, file.filename)}>
                   Unduh
+                </Button>
+                <Button>
+                  <Trash className="h-4 w-4" />
                 </Button>
               </TableCell>
             </TableRow>
