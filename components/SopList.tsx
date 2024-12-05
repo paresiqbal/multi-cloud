@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useCallback } from "react";
+
+// ui
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +13,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+// icons
+import { Search } from "lucide-react";
 
 interface File {
   _id: string;
@@ -25,9 +30,8 @@ export function SopList() {
   const [error, setError] = useState<string | null>(null);
 
   const searchFiles = useCallback(async () => {
-    // Prevent API call if searchQuery is empty
     if (!searchQuery.trim()) {
-      setFiles([]); // Clear files
+      setFiles([]);
       return;
     }
 
@@ -39,7 +43,7 @@ export function SopList() {
       if (response.ok) {
         const data = await response.json();
         setFiles(data);
-        setError(null); // Clear previous errors
+        setError(null);
       } else {
         const errorData = await response.json();
         setError(errorData.error || "Failed to search files");
@@ -82,12 +86,14 @@ export function SopList() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <Button onClick={searchFiles}>Search</Button>
+        <Button onClick={searchFiles}>
+          <Search className="w-4 h-4" />
+        </Button>
       </div>
       {error && <p className="text-red-500 text-sm">{error}</p>}
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-zinc-200">
             <TableHead>Filename</TableHead>
             <TableHead>Size</TableHead>
             <TableHead>Upload Date</TableHead>
