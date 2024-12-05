@@ -2,6 +2,11 @@
 
 import { useState, useEffect } from "react";
 
+// components
+import { useAuth } from "@/hooks/useAuth";
+import { SopForm } from "@/components/SopForm";
+
+// ui
 import {
   Table,
   TableBody,
@@ -10,8 +15,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useAuth } from "@/hooks/useAuth";
-import { SopUpload } from "@/components/SopUpload";
 
 interface File {
   _id: string;
@@ -47,15 +50,15 @@ export default function SchoolsPage() {
 
   return (
     <div className="container mx-auto mt-10 p-4">
-      <h1 className="text-2xl font-bold mb-4">School Data</h1>
+      <h1 className="text-2xl font-bold mb-4">School SOP</h1>
       {user && (
         <>
           <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-2">Upload School Data</h2>
-            <SopUpload />
+            <h2 className="text-xl font-semibold mb-2">Upload School SOP</h2>
+            <SopForm />
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-2">Uploaded School Data</h2>
+            <h2 className="text-xl font-semibold mb-2">Uploaded School SOP</h2>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -78,7 +81,7 @@ export default function SchoolsPage() {
                         href={file.downloadURL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-500 hover:underline"
+                        className="hover:underline"
                       >
                         Download
                       </a>

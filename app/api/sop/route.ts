@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
     const client = await clientPromise;
     const db = client.db("multi-cloud");
-    const collection = db.collection("uploads");
+    const collection = db.collection("sop");
 
     const result = await collection.insertOne({
       filename: file.name,
