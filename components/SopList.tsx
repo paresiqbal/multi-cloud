@@ -94,10 +94,10 @@ export function SopList() {
       <Table>
         <TableHeader>
           <TableRow className="bg-zinc-200">
-            <TableHead>Filename</TableHead>
-            <TableHead>Size</TableHead>
-            <TableHead>Upload Date</TableHead>
-            <TableHead>Action</TableHead>
+            <TableHead>Nama File</TableHead>
+            <TableHead>Ukuran</TableHead>
+            <TableHead>Tanggal Unggah</TableHead>
+            <TableHead>Aksi</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -110,7 +110,7 @@ export function SopList() {
               </TableCell>
               <TableCell>
                 <Button onClick={() => handleDownload(file._id, file.filename)}>
-                  Download
+                  Unduh
                 </Button>
               </TableCell>
             </TableRow>

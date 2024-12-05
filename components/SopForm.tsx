@@ -42,17 +42,20 @@ export function SopForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <Label htmlFor="file">Select a file to upload</Label>
-        <Input
-          id="file"
-          type="file"
-          onChange={(e) => setFile(e.target.files?.[0] || null)}
-          disabled={uploading}
-        />
+        <Label htmlFor="file">Pilih SOP yang mau diunggah</Label>
+        <div className="flex gap-2">
+          <Input
+            id="file"
+            type="file"
+            onChange={(e) => setFile(e.target.files?.[0] || null)}
+            disabled={uploading}
+          />
+          <Button type="submit" disabled={!file || uploading}>
+            {uploading ? "Mengunggah..." : "Unggah"}
+          </Button>
+        </div>
       </div>
-      <Button type="submit" disabled={!file || uploading}>
-        {uploading ? "Uploading..." : "Upload"}
-      </Button>
+
       {uploadStatus && <p className="text-sm font-medium">{uploadStatus}</p>}
     </form>
   );
