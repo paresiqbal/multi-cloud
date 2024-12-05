@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   try {
     const client = await clientPromise;
     const db = client.db("multi-cloud");
-    const collection = db.collection("uploads");
+    const collection = db.collection("sop");
 
     const filter = query ? { filename: { $regex: query, $options: "i" } } : {};
 

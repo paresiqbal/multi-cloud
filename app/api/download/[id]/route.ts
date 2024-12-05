@@ -3,14 +3,17 @@ import clientPromise from "@/lib/mongodb";
 import { ObjectId } from "mongodb";
 
 // Note that you no longer need to explicitly type `params`
-export async function GET(request: NextRequest, props: { params: Promise<{ id: string }> }) {
+export async function GET(
+  request: NextRequest,
+  props: { params: Promise<{ id: string }> }
+) {
   const params = await props.params;
   try {
     const { id } = params;
 
     const client = await clientPromise;
     const db = client.db("multi-cloud");
-    const collection = db.collection("uploads");
+    const collection = db.collection("sop");
 
     const file = await collection.findOne({ _id: new ObjectId(id) });
 

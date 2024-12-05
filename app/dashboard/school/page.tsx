@@ -31,7 +31,7 @@ export default function SchoolsPage() {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response = await fetch("/api/school-data");
+        const response = await fetch("/api/search");
         if (response.ok) {
           const data = await response.json();
           setFiles(data);
