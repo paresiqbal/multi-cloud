@@ -12,10 +12,16 @@ export default function Home() {
         <h1 className="text-3xl sm:text-5xl font-bold">
           SMA Negeri 1 Indonesia
         </h1>
-        <p className="text-base sm:text-lg leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam,
-          aperiam?
+        <p className="text-sm sm:text-base leading-relaxed">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
+          omnis.
         </p>
+        <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <Link href="/auth/register">
+            <Button className="bg-amber-500">Upload Tugas</Button>
+          </Link>
+        </div>
+        <p>Atau</p>
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <Link href="/auth/register">
             <Button variant="outline">Register</Button>
