@@ -58,17 +58,17 @@ export default function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/data-pribadi">
+                    <Link href="/dashboard/staff-teacher/personal-data">
                       Data Pribadi
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/dokumen-kepegawaian">
+                    <Link href="/dashboard/staff-teacher/personel-doc">
                       Dokumen Kepegawaian
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/pengembangan-profesional">
+                    <Link href="/dashboard/staff-teacher/professional-development">
                       Pengembangan Profesional
                     </Link>
                   </DropdownMenuItem>
