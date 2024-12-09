@@ -31,20 +31,45 @@ export default function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center">
-                    Siswa
+                    File Siswa
                     <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/task">Tugas</Link>
+                    <Link href="/dashboard/student/akademik">Akademik</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/task">Nilai Siswa</Link>
+                    <Link href="/dashboard/student/surat-keterangan">
+                      Surat Keterangan
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/task/submit">
-                      Submit Task
+                    <Link href="/dashboard/student/task">Tugas Siswa</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="flex items-center">
+                    Staf & Guru
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>
+                    <Link href="/dashboard/school/data-pribadi">
+                      Data Pribadi
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/dashboard/school/sop/dokumen-kepegawaian">
+                      Dokumen Kepegawaian
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/dashboard/school/sop/pengembangan-profesional">
+                      Pengembangan Profesional
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -52,21 +77,28 @@ export default function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center">
-                    Sekolah
+                    Administrasi
                     <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop">SOP</Link>
+                    <Link href="/dashboard/school/surat">Surat - Surat</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/administrative">
-                      Administrasi
+                    <Link href="/dashboard/school/sop/Kebijakan">
+                      Dokumen Kebijakan
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/disciplinary">Other</Link>
+                    <Link href="/dashboard/school/sop/rencana-evaluasi">
+                      Rencana dan Evaluasi
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/dashboard/school/sop/keuangan">
+                      Dokumen Keuangan
+                    </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

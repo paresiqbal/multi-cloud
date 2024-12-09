@@ -29,7 +29,7 @@ export function TaskForm() {
 
       if (error) throw error;
 
-      setUploadStatus("File uploaded successfully!");
+      setUploadStatus("File berhasil diunggah!");
       console.log("File uploaded:", data);
     } catch (err: unknown) {
       console.error("Upload error:", err);
