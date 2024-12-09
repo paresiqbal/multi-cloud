@@ -37,7 +37,7 @@ export default function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/akademik">Akademik</Link>
+                    <Link href="/dashboard/student/academic">Akademik</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link href="/dashboard/student/surat-keterangan">
