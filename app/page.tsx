@@ -10,14 +10,13 @@ export default function Home() {
       <Image src="/assets/file.png" width={500} height={500} alt="file" />
       <div className="text-center sm:text-left space-y-4">
         <h1 className="text-3xl sm:text-5xl font-bold">
-          SMA Negeri 1 Indonesia
+          SMA Negeri 3 Rangkasbitung
         </h1>
         <p className="text-sm sm:text-base leading-relaxed">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-          omnis.
+          Cloud storage untuk dokumentasi sekolah dan tugas siswa.
         </p>
         <div className="flex gap-4 mt-6">
-          <Link href="/student/student">
+          <Link href="/student">
             <Button>Cari Tugas</Button>
           </Link>
         </div>
