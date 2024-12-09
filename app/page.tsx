@@ -3,6 +3,7 @@ import Link from "next/link";
 
 // ui
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -17,11 +18,13 @@ export default function Home() {
         </p>
         <div className="flex gap-4 mt-6">
           <Link href="/student">
-            <Button>Cari Tugas</Button>
+            <Button>
+              Dashboard Siswa <ArrowRight className="w-6 h-6" />
+            </Button>
           </Link>
         </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
+        <p>Login sebagai staff</p>
+        <div className="flex flex-col sm:flex-row gap-4 mt-8">
           <Link href="/auth/register">
             <Button variant="outline">Register</Button>
           </Link>

@@ -22,7 +22,7 @@ export default function Navbar() {
   return (
     <nav className="border-b p-2">
       <div className="container mx-auto flex justify-between items-center">
-        <Link href="/dashboard" className="text-xl font-bold">
+        <Link href="/" className="text-xl font-bold">
           <Image src="/assets/file.png" alt="Logo" width={50} height={50} />
         </Link>
         <div className="hidden md:flex items-center space-x-4">
@@ -78,7 +78,7 @@ export default function Navbar() {
           ) : (
             <>
               <Link href="/auth/login">
-                <Button variant="ghost">Login</Button>
+                <Button variant="ghost">Tugas</Button>
               </Link>
               <Link href="/auth/register">
                 <Button>Register</Button>
@@ -179,7 +179,7 @@ export default function Navbar() {
             <div className="flex flex-col space-y-2">
               <Link href="/auth/login" onClick={toggleMenu}>
                 <Button variant="ghost" className="w-full">
-                  Login
+                  Tugas
                 </Button>
               </Link>
               <Link href="/auth/register" onClick={toggleMenu}>
