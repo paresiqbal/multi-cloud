@@ -81,7 +81,7 @@ export function TaskList() {
       <div className="flex gap-2">
         <Input
           type="text"
-          placeholder="Search files..."
+          placeholder="Cari tugas..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -93,10 +93,10 @@ export function TaskList() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Filename</TableHead>
-            <TableHead>Size</TableHead>
-            <TableHead>Last Modified</TableHead>
-            <TableHead>Action</TableHead>
+            <TableHead>Nama File</TableHead>
+            <TableHead>Ukuran</TableHead>
+            <TableHead>Terakhir Diubah</TableHead>
+            <TableHead>Aksi</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

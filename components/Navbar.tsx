@@ -76,14 +76,10 @@ export default function Navbar() {
               </Button>
             </>
           ) : (
-            <>
-              <Link href="/auth/login">
-                <Button variant="ghost">Tugas</Button>
-              </Link>
-              <Link href="/auth/register">
-                <Button>Register</Button>
-              </Link>
-            </>
+            <div className="space-x-4 text-sm">
+              <Link href="/student/student-task">Cari Tugas</Link>
+              <Link href="/student/submit-task">Kirim Tugas</Link>
+            </div>
           )}
         </div>
         <div className="md:hidden">
