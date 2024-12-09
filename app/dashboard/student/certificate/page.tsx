@@ -1,7 +1,7 @@
 "use client";
 
-import { AcademicForm } from "@/components/AcademicForm";
-import { AcademicList } from "@/components/AcademicList";
+import { LetterForm } from "@/components/LetterForm";
+import { LetterList } from "@/components/LetterList";
 import {
   Card,
   CardContent,
@@ -19,7 +19,7 @@ export default function Surat() {
         Keterangan Lulus.
       </p>
       <div className="mb-8">
-        <AcademicForm />
+        <LetterForm />
       </div>
 
       <Card>
@@ -28,7 +28,7 @@ export default function Surat() {
           <CardDescription>List dokumen.</CardDescription>
         </CardHeader>
         <CardContent>
-          <AcademicList />
+          <LetterList />
         </CardContent>
       </Card>
     </div>
