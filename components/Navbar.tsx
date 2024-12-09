@@ -83,20 +83,22 @@ export default function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/surat">Surat - Surat</Link>
+                    <Link href="/dashboard/administration/letter">
+                      Surat - Surat
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/Kebijakan">
+                    <Link href="/dashboard/administration/policy">
                       Dokumen Kebijakan
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/rencana-evaluasi">
+                    <Link href="/dashboard/administration/rencana-evaluasi">
                       Rencana dan Evaluasi
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/keuangan">
+                    <Link href="/dashboard/administration/keuangan">
                       Dokumen Keuangan
                     </Link>
                   </DropdownMenuItem>
