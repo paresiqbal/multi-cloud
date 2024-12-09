@@ -40,7 +40,7 @@ export default function Navbar() {
                     <Link href="/dashboard/student/academic">Akademik</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/surat">
+                    <Link href="/dashboard/student/certificate">
                       Surat Keterangan
                     </Link>
                   </DropdownMenuItem>
