@@ -98,7 +98,7 @@ export default function Navbar() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/administration/keuangan">
+                    <Link href="/dashboard/administration/financial">
                       Dokumen Keuangan
                     </Link>
                   </DropdownMenuItem>
