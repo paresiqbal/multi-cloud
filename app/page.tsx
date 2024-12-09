@@ -16,12 +16,12 @@ export default function Home() {
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
           omnis.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 mt-6">
-          <Link href="/auth/register">
-            <Button className="bg-amber-500">Upload Tugas</Button>
+        <div className="flex gap-4 mt-6">
+          <Link href="/student/student-task">
+            <Button>Upload Tugas</Button>
           </Link>
         </div>
-        <p>Atau</p>
+
         <div className="flex flex-col sm:flex-row gap-4 mt-6">
           <Link href="/auth/register">
             <Button variant="outline">Register</Button>
