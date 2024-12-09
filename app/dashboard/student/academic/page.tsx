@@ -1,7 +1,7 @@
 "use client";
 
 import { TaskList } from "@/components/TaskList";
-import { TaskForm } from "@/components/TaskForm";
+import { AcademicForm } from "@/components/AcademicForm";
 import {
   Card,
   CardContent,
@@ -15,10 +15,11 @@ export default function Academic() {
     <div className="container mx-auto mt-10 p-4 max-w-7xl">
       <h1 className="text-2xl font-bold">Dokumen Akademik</h1>
       <p className="mb-8">
-        Unggah raport, SKHUN (Surat Keterangan Hasil Ujian Nasional), Ijazah.
+        Nilai, Unggah raport, SKHUN (Surat Keterangan Hasil Ujian Nasional),
+        Ijazah.
       </p>
       <div className="mb-8">
-        <TaskForm />
+        <AcademicForm />
       </div>
 
       <Card>
