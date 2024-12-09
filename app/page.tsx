@@ -17,8 +17,8 @@ export default function Home() {
           omnis.
         </p>
         <div className="flex gap-4 mt-6">
-          <Link href="/student/student-task">
-            <Button>Upload Tugas</Button>
+          <Link href="/student/student">
+            <Button>Cari Tugas</Button>
           </Link>
         </div>
 
