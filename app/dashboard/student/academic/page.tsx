@@ -1,7 +1,7 @@
 "use client";
 
-import { TaskList } from "@/components/TaskList";
 import { AcademicForm } from "@/components/AcademicForm";
+import { AcademicList } from "@/components/AcademicList";
 import {
   Card,
   CardContent,
@@ -28,7 +28,7 @@ export default function Academic() {
           <CardDescription>List dokumen.</CardDescription>
         </CardHeader>
         <CardContent>
-          <TaskList />
+          <AcademicList />
         </CardContent>
       </Card>
     </div>
