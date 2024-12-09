@@ -31,18 +31,16 @@ export default function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center">
-                    Tugas Siswa
+                    Siswa
                     <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/task/create">
-                      Create Task
-                    </Link>
+                    <Link href="/dashboard/student/task">Tugas</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/task/view">View Tasks</Link>
+                    <Link href="/dashboard/student/task">Nilai Siswa</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link href="/dashboard/student/task/submit">
@@ -54,25 +52,21 @@ export default function Navbar() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center">
-                    Sop Sekolah
+                    Sekolah
                     <ChevronDown className="ml-2 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/academic">
-                      Academic SOP
-                    </Link>
+                    <Link href="/dashboard/school/sop">SOP</Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link href="/dashboard/school/sop/administrative">
-                      Administrative SOP
+                      Administrasi
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/school/sop/disciplinary">
-                      Disciplinary SOP
-                    </Link>
+                    <Link href="/dashboard/school/sop/disciplinary">Other</Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
