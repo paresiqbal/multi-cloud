@@ -19,9 +19,9 @@ export function TaskForm() {
     setUploadStatus(null);
 
     try {
-      const filePath = `uploads/${file.name}`;
+      const filePath = `student-task/${file.name}`;
       const { data, error } = await supabase.storage
-        .from("task")
+        .from("student-documents")
         .upload(filePath, file, {
           contentType: file.type,
           upsert: true,

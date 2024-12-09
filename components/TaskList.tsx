@@ -33,8 +33,8 @@ export function TaskList() {
 
     try {
       const { data, error } = await supabase.storage
-        .from("task")
-        .list("uploads");
+        .from("student-documents")
+        .list("student-task");
 
       if (error) throw error;
 
