@@ -21,7 +21,7 @@ export function AcademicForm() {
     try {
       const filePath = `academic-documents/${file.name}`;
       const { data, error } = await supabase.storage
-        .from("academic-documents")
+        .from("student-documents")
         .upload(filePath, file, {
           contentType: file.type,
           upsert: true,
