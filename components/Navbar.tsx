@@ -93,7 +93,7 @@ export default function Navbar() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/administration/rencana-evaluasi">
+                    <Link href="/dashboard/administration/plan-evaluation">
                       Rencana dan Evaluasi
                     </Link>
                   </DropdownMenuItem>
