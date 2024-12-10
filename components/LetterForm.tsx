@@ -42,7 +42,7 @@ export function LetterForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <Label htmlFor="file">Pilih SOP yang mau diunggah</Label>
+        <Label htmlFor="file">Pilih surat yang mau diunggah</Label>
         <div className="flex gap-2">
           <Input
             id="file"
