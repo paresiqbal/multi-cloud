@@ -45,7 +45,14 @@ export default function Navbar() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/dashboard/student/task">Tugas Siswa</Link>
+                    <Link href="/dashboard/student/task">
+                      Upload Tugas Siswa
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/dashboard/student/download-task">
+                      Ambil Tugas Siswa
+                    </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>

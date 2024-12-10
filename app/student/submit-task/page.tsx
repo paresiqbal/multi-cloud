@@ -1,4 +1,5 @@
 import { IpaForm } from "@/components/studentTask/IpaForm";
+import { MathForm } from "@/components/studentTask/MathForm";
 
 import {
   Card,
@@ -7,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function SubmitTask() {
@@ -37,13 +37,13 @@ export default function SubmitTask() {
         <TabsContent value="password">
           <Card>
             <CardHeader>
-              <CardTitle>Ilmu Pengetahuan Alam</CardTitle>
+              <CardTitle>Matematika</CardTitle>
               <CardDescription>
-                Kirim tugas atau pekerjaan rumah IPA di sini.
+                Kirim tugas atau pekerjaan rumah matematika di sini.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <IpaForm />
+              <MathForm />
             </CardContent>
           </Card>
         </TabsContent>
