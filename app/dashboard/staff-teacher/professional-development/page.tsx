@@ -1,7 +1,7 @@
 "use client";
 
-import { PersonelForm } from "@/components/PersonelForm";
-import { PersonelList } from "@/components/PersonelList";
+import { ProfessionalList } from "@/components/PersonelList";
+import { ProfessionalForm } from "@/components/ProfessionalForm";
 import {
   Card,
   CardContent,
@@ -18,7 +18,7 @@ export default function ProfessionalDevelopment() {
         Sertifikasi guru, Pelatihan dan workshop yang diikuti.
       </p>
       <div className="mb-8">
-        <PersonelForm />
+        <ProfessionalForm />
       </div>
 
       <Card>
@@ -27,7 +27,7 @@ export default function ProfessionalDevelopment() {
           <CardDescription>List dokumen.</CardDescription>
         </CardHeader>
         <CardContent>
-          <PersonelList />
+          <ProfessionalList />
         </CardContent>
       </Card>
     </div>

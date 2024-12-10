@@ -20,7 +20,7 @@ interface File {
   lastModified: string;
 }
 
-export function PersonelList() {
+export function ProfessionalList() {
   const [files, setFiles] = useState<File[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState<string | null>(null);
