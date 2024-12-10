@@ -1,8 +1,9 @@
 "use client";
 
-import { SopForm } from "@/components/PolicyForm";
 // components
-import { SopList } from "@/components/PolicyList";
+import { LetterForm } from "@/components/LetterForm";
+import { LetterList } from "@/components/LetterList";
+
 import {
   Card,
   CardContent,
@@ -17,7 +18,7 @@ export default function Letter() {
       <h1 className="text-2xl font-bold">Surat - Menyurat</h1>
       <p className="mb-8">Surat Masuk, Surat Keluar.</p>
       <div className="mb-8">
-        <SopForm />
+        <LetterForm />
       </div>
       <Card>
         <CardHeader>
@@ -25,7 +26,7 @@ export default function Letter() {
           <CardDescription>Lis Surat yang tersedia.</CardDescription>
         </CardHeader>
         <CardContent>
-          <SopList />
+          <LetterList />
         </CardContent>
       </Card>
     </div>
