@@ -1,8 +1,8 @@
 "use client";
 
 // components
-import { LetterForm } from "@/components/LetterForm";
-import { LetterList } from "@/components/LetterList";
+import { FinancialForm } from "@/components/FinancialForm";
+import { FinancialList } from "@/components/FinancialList";
 
 import {
   Card,
@@ -21,7 +21,7 @@ export default function Letter() {
         keuangan, laporan keuangan.
       </p>
       <div className="mb-8">
-        <LetterForm />
+        <FinancialForm />
       </div>
       <Card>
         <CardHeader>
@@ -29,7 +29,7 @@ export default function Letter() {
           <CardDescription>Lis Surat yang tersedia.</CardDescription>
         </CardHeader>
         <CardContent>
-          <LetterList />
+          <FinancialList />
         </CardContent>
       </Card>
     </div>
