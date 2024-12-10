@@ -1,7 +1,7 @@
 "use client";
 
-import { LetterForm } from "@/components/LetterForm";
-import { LetterList } from "@/components/LetterList";
+import { CertificateForm } from "@/components/CertificateForm";
+import { CertificateList } from "@/components/CertificateList";
 import {
   Card,
   CardContent,
@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function Surat() {
+export default function Certificate() {
   return (
     <div className="container mx-auto mt-10 p-4 max-w-7xl">
       <h1 className="text-2xl font-bold">Surat Keterangan</h1>
@@ -19,7 +19,7 @@ export default function Surat() {
         Keterangan Lulus.
       </p>
       <div className="mb-8">
-        <LetterForm />
+        <CertificateForm />
       </div>
 
       <Card>
@@ -28,7 +28,7 @@ export default function Surat() {
           <CardDescription>List dokumen.</CardDescription>
         </CardHeader>
         <CardContent>
-          <LetterList />
+          <CertificateList />
         </CardContent>
       </Card>
     </div>
