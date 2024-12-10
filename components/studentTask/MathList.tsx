@@ -34,7 +34,7 @@ export function ProfessionalList() {
     try {
       const { data, error } = await supabase.storage
         .from("task-upload")
-        .list("ipa-task");
+        .list("mm-task");
 
       if (error) throw error;
 
@@ -59,8 +59,8 @@ export function ProfessionalList() {
   const handleDownload = async (fileName: string) => {
     try {
       const { data, error } = await supabase.storage
-        .from("task")
-        .createSignedUrl(`ipa-task/${fileName}`, 60);
+        .from("task-upload")
+        .createSignedUrl(`mm-task/${fileName}`, 60);
 
       if (error) throw error;
 

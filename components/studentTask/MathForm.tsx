@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export function IpaTask() {
+export function IpaForm() {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [uploadStatus, setUploadStatus] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export function IpaTask() {
     setUploadStatus(null);
 
     try {
-      const filePath = `ipa-task/${file.name}`;
+      const filePath = `mm-task/${file.name}`;
       const { data, error } = await supabase.storage
         .from("task-upload")
         .upload(filePath, file, {

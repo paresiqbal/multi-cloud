@@ -1,4 +1,4 @@
-import { IpaTask } from "@/components/studentTask/IpaTask";
+import { IpaForm } from "@/components/studentTask/IpaForm";
 
 import {
   Card,
@@ -30,7 +30,7 @@ export default function SubmitTask() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <IpaTask />
+              <IpaForm />
             </CardContent>
           </Card>
         </TabsContent>
@@ -43,7 +43,7 @@ export default function SubmitTask() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2">
-              <IpaTask />
+              <IpaForm />
             </CardContent>
           </Card>
         </TabsContent>
