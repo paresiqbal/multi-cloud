@@ -24,7 +24,7 @@ interface File {
   uploadDate: string;
 }
 
-export function SopList() {
+export function PolicyList() {
   const [files, setFiles] = useState<File[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState<string | null>(null);

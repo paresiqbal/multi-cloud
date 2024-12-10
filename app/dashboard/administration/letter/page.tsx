@@ -1,8 +1,8 @@
 "use client";
 
-import { SopForm } from "@/components/SopForm";
+import { SopForm } from "@/components/PolicyForm";
 // components
-import { SopList } from "@/components/SopList";
+import { SopList } from "@/components/PolicyList";
 import {
   Card,
   CardContent,
