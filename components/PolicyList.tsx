@@ -37,7 +37,7 @@ export function PolicyList() {
 
     try {
       const response = await fetch(
-        `/api/sop/sop-search?query=${encodeURIComponent(searchQuery)}`
+        `/api/policy/policy-search?query=${encodeURIComponent(searchQuery)}`
       );
 
       if (response.ok) {
@@ -56,7 +56,7 @@ export function PolicyList() {
 
   const handleDownload = async (fileId: string, filename: string) => {
     try {
-      const response = await fetch(`/api/sop/sop-download/${fileId}`);
+      const response = await fetch(`/api/policy/policy-download/${fileId}`);
       if (response.ok) {
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);

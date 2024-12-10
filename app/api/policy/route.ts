@@ -14,8 +14,8 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(await file.arrayBuffer());
 
     const client = await clientPromise;
-    const db = client.db("schools");
-    const collection = db.collection("sop");
+    const db = client.db("administration");
+    const collection = db.collection("policy");
 
     const result = await collection.insertOne({
       filename: file.name,

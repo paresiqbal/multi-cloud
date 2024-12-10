@@ -21,7 +21,7 @@ export function PolicyForm() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("/api/sop", {
+      const response = await fetch("/api/policy", {
         method: "POST",
         body: formData,
       });
