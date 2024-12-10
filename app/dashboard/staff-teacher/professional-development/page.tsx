@@ -1,7 +1,7 @@
 "use client";
 
-import { ProfessionalList } from "@/components/PersonelList";
 import { ProfessionalForm } from "@/components/ProfessionalForm";
+import { ProfessionalList } from "@/components/ProfessionalList";
 import {
   Card,
   CardContent,
