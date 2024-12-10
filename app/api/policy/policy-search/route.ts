@@ -7,8 +7,8 @@ export async function GET(request: NextRequest) {
 
   try {
     const client = await clientPromise;
-    const db = client.db("schools");
-    const collection = db.collection("sop");
+    const db = client.db("administration");
+    const collection = db.collection("policy");
 
     const filter = query ? { filename: { $regex: query, $options: "i" } } : {};
 

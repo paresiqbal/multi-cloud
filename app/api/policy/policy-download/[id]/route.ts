@@ -12,8 +12,8 @@ export async function GET(
     const { id } = params;
 
     const client = await clientPromise;
-    const db = client.db("multi-cloud");
-    const collection = db.collection("sop");
+    const db = client.db("administration");
+    const collection = db.collection("policy");
 
     const file = await collection.findOne({ _id: new ObjectId(id) });
 
