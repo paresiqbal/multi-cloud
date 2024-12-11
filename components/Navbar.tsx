@@ -60,6 +60,9 @@ export default function Navbar() {
                       Ambil Tugas Siswa
                     </Link>
                   </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/dashboard/student/ebook">Ebook</Link>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
               <DropdownMenu>
