@@ -1,7 +1,7 @@
 "use client";
 
-import { CertificateForm } from "@/components/CertificateForm";
-import { CertificateList } from "@/components/CertificateList";
+import { EbookForm } from "@/components/EbookForm";
+import { EbookList } from "@/components/EbookList";
 import {
   Card,
   CardContent,
@@ -19,7 +19,7 @@ export default function Certificate() {
         perangkat elektronik seperti komputer, tablet, atau smartphone
       </p>
       <div className="mb-8">
-        <CertificateForm />
+        <EbookForm />
       </div>
 
       <Card>
@@ -28,7 +28,7 @@ export default function Certificate() {
           <CardDescription>List ebook.</CardDescription>
         </CardHeader>
         <CardContent>
-          <CertificateList />
+          <EbookList />
         </CardContent>
       </Card>
     </div>
