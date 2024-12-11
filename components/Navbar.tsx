@@ -129,6 +129,7 @@ export default function Navbar() {
             <div className="space-x-4 text-sm">
               <Link href="/student/student-task">Cari Tugas</Link>
               <Link href="/student/submit-task">Kirim Tugas</Link>
+              <Link href="/student/ebook">Ebook</Link>
             </div>
           )}
         </div>
