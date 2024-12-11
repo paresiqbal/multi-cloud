@@ -5,19 +5,23 @@ import { useAuth } from "../hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "./ui/dropdown-menu";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleDropdown = (dropdown: string) => {
+    setOpenDropdown(openDropdown === dropdown ? null : dropdown);
+  };
 
   return (
     <nav className="border-b p-2">
@@ -143,74 +147,123 @@ export default function Navbar() {
         <div className="md:hidden mt-2">
           {user ? (
             <div className="flex flex-col space-y-2">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="w-full justify-between">
-                    Tugas Siswa
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between"
+                  onClick={() => toggleDropdown("fileSiswa")}
+                >
+                  File Siswa
+                  {openDropdown === "fileSiswa" ? (
+                    <ChevronUp className="ml-2 h-4 w-4" />
+                  ) : (
                     <ChevronDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>
-                    <Link
-                      href="/dashboard/student/task/create"
-                      onClick={toggleMenu}
-                    >
-                      Create Task
+                  )}
+                </Button>
+                {openDropdown === "fileSiswa" && (
+                  <div className="pl-4 py-2 space-y-2">
+                    <Link href="/dashboard/student/academic" className="block">
+                      Akademik
                     </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
                     <Link
-                      href="/dashboard/student/task/view"
-                      onClick={toggleMenu}
+                      href="/dashboard/student/certificate"
+                      className="block"
                     >
-                      View Tasks
+                      Surat Keterangan
                     </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
+                    <Link href="/dashboard/student/task" className="block">
+                      Upload Tugas Siswa
+                    </Link>
                     <Link
-                      href="/dashboard/student/task/submit"
-                      onClick={toggleMenu}
+                      href="/dashboard/student/download-task"
+                      className="block"
                     >
-                      Submit Task
+                      Ambil Tugas Siswa
                     </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="w-full justify-between">
-                    Sop Sekolah
+                    <Link href="/dashboard/student/ebook" className="block">
+                      Ebook
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between"
+                  onClick={() => toggleDropdown("stafGuru")}
+                >
+                  Staf & Guru
+                  {openDropdown === "stafGuru" ? (
+                    <ChevronUp className="ml-2 h-4 w-4" />
+                  ) : (
                     <ChevronDown className="ml-2 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  <DropdownMenuItem>
+                  )}
+                </Button>
+                {openDropdown === "stafGuru" && (
+                  <div className="pl-4 py-2 space-y-2">
                     <Link
-                      href="/dashboard/school/sop/academic"
-                      onClick={toggleMenu}
+                      href="/dashboard/staff-teacher/personal-data"
+                      className="block"
                     >
-                      Academic SOP
+                      Data Pribadi
                     </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
                     <Link
-                      href="/dashboard/school/sop/administrative"
-                      onClick={toggleMenu}
+                      href="/dashboard/staff-teacher/personel-doc"
+                      className="block"
                     >
-                      Administrative SOP
+                      Dokumen Kepegawaian
                     </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
                     <Link
-                      href="/dashboard/school/sop/disciplinary"
-                      onClick={toggleMenu}
+                      href="/dashboard/staff-teacher/professional-development"
+                      className="block"
                     >
-                      Disciplinary SOP
+                      Pengembangan Profesional
                     </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+                  </div>
+                )}
+              </div>
+              <div>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between"
+                  onClick={() => toggleDropdown("administrasi")}
+                >
+                  Administrasi
+                  {openDropdown === "administrasi" ? (
+                    <ChevronUp className="ml-2 h-4 w-4" />
+                  ) : (
+                    <ChevronDown className="ml-2 h-4 w-4" />
+                  )}
+                </Button>
+                {openDropdown === "administrasi" && (
+                  <div className="pl-4 py-2 space-y-2">
+                    <Link
+                      href="/dashboard/administration/letter"
+                      className="block"
+                    >
+                      Surat - Surat
+                    </Link>
+                    <Link
+                      href="/dashboard/administration/policy"
+                      className="block"
+                    >
+                      Dokumen Kebijakan
+                    </Link>
+                    <Link
+                      href="/dashboard/administration/plan-evaluation"
+                      className="block"
+                    >
+                      Rencana dan Evaluasi
+                    </Link>
+                    <Link
+                      href="/dashboard/administration/financial"
+                      className="block"
+                    >
+                      Dokumen Keuangan
+                    </Link>
+                  </div>
+                )}
+              </div>
               <p className="text-sm text-gray-600 px-2 py-1">{user.email}</p>
               <Button
                 onClick={() => {
@@ -224,13 +277,20 @@ export default function Navbar() {
             </div>
           ) : (
             <div className="flex flex-col space-y-2">
-              <Link href="/auth/login" onClick={toggleMenu}>
+              <Link href="/student/student-task" onClick={toggleMenu}>
                 <Button variant="ghost" className="w-full">
-                  Tugas
+                  Cari Tugas
                 </Button>
               </Link>
-              <Link href="/auth/register" onClick={toggleMenu}>
-                <Button className="w-full">Register</Button>
+              <Link href="/student/submit-task" onClick={toggleMenu}>
+                <Button variant="ghost" className="w-full">
+                  Kirim Tugas
+                </Button>
+              </Link>
+              <Link href="/student/ebook" onClick={toggleMenu}>
+                <Button variant="ghost" className="w-full">
+                  Ebook
+                </Button>
               </Link>
             </div>
           )}
