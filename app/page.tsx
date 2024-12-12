@@ -45,7 +45,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
+          <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none ">
             <Image
               src="/assets/file.jpg"
               alt="File management illustration"
