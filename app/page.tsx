@@ -47,7 +47,7 @@ export default function Home() {
           </div>
           <div className="relative aspect-square w-full max-w-md mx-auto lg:max-w-none">
             <Image
-              src="/assets/file.png"
+              src="/assets/file.jpg"
               alt="File management illustration"
               fill
               className="object-contain"
