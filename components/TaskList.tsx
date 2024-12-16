@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,15 +22,11 @@ interface File {
 
 export function TaskList() {
   const [files, setFiles] = useState<File[]>([]);
+  const [filteredFiles, setFilteredFiles] = useState<File[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState<string | null>(null);
 
-  const searchFiles = useCallback(async () => {
-    if (!searchQuery.trim()) {
-      setFiles([]);
-      return;
-    }
-
+  const fetchFiles = useCallback(async () => {
     try {
       const { data, error } = await supabase.storage
         .from("student-documents")
@@ -39,22 +35,39 @@ export function TaskList() {
       if (error) throw error;
 
       if (data) {
-        const filteredFiles = data
-          .filter((file) =>
-            file.name.toLowerCase().includes(searchQuery.toLowerCase())
-          )
-          .map((file) => ({
-            name: file.name,
-            size: file.metadata?.size || 0,
-            lastModified: file.updated_at || new Date().toISOString(),
-          }));
-        setFiles(filteredFiles);
+        const formattedFiles = data.map((file) => ({
+          name: file.name,
+          size: file.metadata?.size || 0,
+          lastModified: file.updated_at || new Date().toISOString(),
+        }));
+        setFiles(formattedFiles);
+        setFilteredFiles(formattedFiles);
       }
     } catch (err: unknown) {
-      console.error("Error searching files:", err);
+      console.error("Error fetching files:", err);
       setError("Failed to fetch files. Please try again later.");
     }
-  }, [searchQuery]);
+  }, []);
+
+  useEffect(() => {
+    fetchFiles();
+  }, [fetchFiles]);
+
+  const searchFiles = useCallback(() => {
+    if (!searchQuery.trim()) {
+      setFilteredFiles(files);
+      return;
+    }
+
+    const filtered = files.filter((file) =>
+      file.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredFiles(filtered);
+  }, [searchQuery, files]);
+
+  useEffect(() => {
+    searchFiles();
+  }, [searchFiles, searchQuery]);
 
   const handleDownload = async (fileName: string) => {
     try {
@@ -100,7 +113,7 @@ export function TaskList() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {files.map((file) => (
+          {filteredFiles.map((file) => (
             <TableRow key={file.name}>
               <TableCell>{file.name}</TableCell>
               <TableCell>{Math.round(file.size / 1024)} KB</TableCell>
