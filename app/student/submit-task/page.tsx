@@ -18,7 +18,7 @@ export default function SubmitTask() {
         Kirim tugas atau pekerjaan rumah
       </h1>
       <Tabs defaultValue="account" className="max-w-7xl">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="account">IPA</TabsTrigger>
           <TabsTrigger value="password">Matematika</TabsTrigger>
           <TabsTrigger value="password">B-Indo</TabsTrigger>
@@ -39,7 +39,7 @@ export default function SubmitTask() {
         <TabsContent value="MM">
           <Card>
             <CardHeader>
-              <CardTitle>Matematika</CardTitle>
+              <CardTitle>MM</CardTitle>
               <CardDescription>
                 Kirim tugas atau pekerjaan rumah matematika di sini.
               </CardDescription>
