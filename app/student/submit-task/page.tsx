@@ -1,3 +1,4 @@
+import { BindoForm } from "@/components/studentTask/BindoForm";
 import { IpaForm } from "@/components/studentTask/IpaForm";
 import { MathForm } from "@/components/studentTask/MathForm";
 
@@ -20,8 +21,9 @@ export default function SubmitTask() {
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="account">IPA</TabsTrigger>
           <TabsTrigger value="password">Matematika</TabsTrigger>
+          <TabsTrigger value="password">B-Indo</TabsTrigger>
         </TabsList>
-        <TabsContent value="account">
+        <TabsContent value="IPA">
           <Card>
             <CardHeader>
               <CardTitle>Ilmu Pengetahuan Alam</CardTitle>
@@ -34,7 +36,7 @@ export default function SubmitTask() {
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="password">
+        <TabsContent value="MM">
           <Card>
             <CardHeader>
               <CardTitle>Matematika</CardTitle>
@@ -44,6 +46,19 @@ export default function SubmitTask() {
             </CardHeader>
             <CardContent className="space-y-2">
               <MathForm />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="B-indo">
+          <Card>
+            <CardHeader>
+              <CardTitle>Bahasa Indonesia</CardTitle>
+              <CardDescription>
+                Kirim tugas atau pekerjaan rumah matematika di sini.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <BindoForm />
             </CardContent>
           </Card>
         </TabsContent>
