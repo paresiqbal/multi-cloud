@@ -1,3 +1,4 @@
+import { AgamaForm } from "@/components/studentTask/AgamaForm";
 import { BindoForm } from "@/components/studentTask/BindoForm";
 import { IpaForm } from "@/components/studentTask/IpaForm";
 import { MathForm } from "@/components/studentTask/MathForm";
@@ -17,13 +18,14 @@ export default function SubmitTask() {
       <h1 className="mb-6 text-xl font-bold">
         Kirim tugas atau pekerjaan rumah
       </h1>
-      <Tabs defaultValue="account" className="max-w-7xl">
-        <TabsList className="grid w-full grid-cols-3">
-          <TabsTrigger value="account">IPA</TabsTrigger>
-          <TabsTrigger value="password">Matematika</TabsTrigger>
-          <TabsTrigger value="password">B-Indo</TabsTrigger>
+      <Tabs defaultValue="ipa" className="max-w-7xl">
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="ipa">IPA</TabsTrigger>
+          <TabsTrigger value="matematika">Matematika</TabsTrigger>
+          <TabsTrigger value="bindo">B-Indo</TabsTrigger>
+          <TabsTrigger value="agama">Agama</TabsTrigger>
         </TabsList>
-        <TabsContent value="IPA">
+        <TabsContent value="ipa">
           <Card>
             <CardHeader>
               <CardTitle>Ilmu Pengetahuan Alam</CardTitle>
@@ -36,10 +38,10 @@ export default function SubmitTask() {
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="MM">
+        <TabsContent value="matematika">
           <Card>
             <CardHeader>
-              <CardTitle>MM</CardTitle>
+              <CardTitle>Matematika</CardTitle>
               <CardDescription>
                 Kirim tugas atau pekerjaan rumah matematika di sini.
               </CardDescription>
@@ -49,7 +51,7 @@ export default function SubmitTask() {
             </CardContent>
           </Card>
         </TabsContent>
-        <TabsContent value="B-indo">
+        <TabsContent value="bindo">
           <Card>
             <CardHeader>
               <CardTitle>Bahasa Indonesia</CardTitle>
@@ -59,6 +61,19 @@ export default function SubmitTask() {
             </CardHeader>
             <CardContent className="space-y-2">
               <BindoForm />
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="agama">
+          <Card>
+            <CardHeader>
+              <CardTitle>Agama</CardTitle>
+              <CardDescription>
+                Kirim tugas atau pekerjaan rumah matematika di sini.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <AgamaForm />
             </CardContent>
           </Card>
         </TabsContent>
