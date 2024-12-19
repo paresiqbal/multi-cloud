@@ -62,6 +62,10 @@ export default function Home() {
             © 2023 SMA Negeri 3 Rangkasbitung. Hak cipta dilindungi
             undang-undang.
           </p>
+          <h1>
+            Lorem ipsum dolor sit amet consectestur adipisicing elit. Mollitia,
+            nisi?
+          </h1>
         </div>
       </footer>
     </div>
