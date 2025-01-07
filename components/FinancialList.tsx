@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 // ui
 import { Input } from "@/components/ui/input";
@@ -80,6 +80,30 @@ export function FinancialList() {
       console.error("Error downloading file:", err);
     }
   };
+
+  // useEffect to fetch files when the component mounts
+  useEffect(() => {
+    // Optionally, you can set an initial search query or fetch all files
+    // For example, to fetch all files without filtering:
+    const fetchAllFiles = async () => {
+      try {
+        const response = await fetch(`/api/financial/financial-search`);
+        if (response.ok) {
+          const data = await response.json();
+          setFiles(data);
+          setError(null);
+        } else {
+          const errorData = await response.json();
+          setError(errorData.error || "Failed to fetch files");
+        }
+      } catch (err) {
+        console.error("Error fetching files:", err);
+        setError("An unexpected error occurred.");
+      }
+    };
+
+    fetchAllFiles();
+  }, []); // Empty dependency array ensures this runs once on mount
 
   return (
     <div className="space-y-4">
